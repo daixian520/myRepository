@@ -1,0 +1,137 @@
+
+.main{
+  /* background-color:white; */
+  margin:0px 0px;
+   /* background-image: linear-gradient(45deg, #39b54a, #8dc63f); */
+}
+.lunbo{
+  width: 100%;
+}
+.card{
+  background: #eee;
+  margin: 0 10rpx;
+}
+.weui-search-bar{
+  position:relative;
+  padding: 8px 10px;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+  box-sizing:border-box;
+  background-color:white;
+  /* border-top:1rpx solid #d7d6dc; */
+  /* border-bottom:1rpx solid #d7d6dc */
+  }
+.weui-icon-search{
+  margin-right:8px;
+  font-size:inherit
+  }
+.weui-icon-search_in-box{
+  position:absolute;
+  left:10px;
+  top:7px
+  }
+  .weui-search-bar__text{
+    display:inline-block;
+    font-size:14px;
+    }
+.weui-search-bar__form{
+  position:relative;
+  -webkit-box-flex:1;
+  -webkit-flex:auto;
+  flex:auto;
+  border-radius:5px;
+  background:rgb(246, 246, 246);
+  border:1rpx solid #e6e6ea;
+  }
+.weui-search-bar__box{
+  position:relative;
+  padding-left:30px;
+  padding-right:30px;
+  width:100%;
+  box-sizing:border-box;
+  z-index:1
+  }
+.weui-search-bar__input{
+  height:28px;
+  line-height:28px;
+  font-size:14px
+  }
+.weui-icon-clear{
+    position:absolute;
+    top:0;
+    right:0;
+    padding:7px 8px;
+    font-size:0
+    }
+.weui-search-bar__label{
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      z-index:2;
+      border-radius:3px;
+      text-align:center;
+     color:#9b9b9b;
+       background:rgb(246, 246, 246);
+      line-height:28px
+      }
+.weui-search-bar__cancel-btn{
+  margin-left:10px;
+  height: 28px;
+  line-height:28px;
+  color:#09bb07;
+  white-space:nowrap;
+  font-size: 30rpx;
+  }
+.hide{
+  display: none;
+}
+.show{
+  height: auto;
+}
+.selectcount{
+  font-size: 28rpx;
+   margin:10rpx 10rpx 20rpx;
+   float: left
+}
+.singlewindow{
+  width: 100%;
+  display: inline-flex;
+  margin-top: 15rpx;
+  align-content: center;
+  align-items: center;
+}
+.Windows-image{
+  display: inline-flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-content: center;
+  margin-left: 10rpx;
+} 
+.Windows-info{
+  display: inline-flex;
+  padding-left: 10rpx;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+ 
+}
+.Windowname{
+  color: rgb(53, 53, 53);
+  font-weight: bold;
+  display: inline-flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  
+}
+.Windownum,.Windowmenu{
+  font-weight: none;
+  font-size: 30rpx;
+  color: grey;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: flex-end;
+}

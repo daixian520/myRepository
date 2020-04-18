@@ -1,0 +1,12 @@
+<!--pages/add/add.wxml-->
+<view class="page">
+<view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="change" placeholder="请输入文字，不能为空" value="{{content}}" ></textarea>
+	</view>
+  <view class="flex margin-top-lg">
+  <view class="flex-sub bg-orange padding-sm margin-xs radius text-center" bindtap="sure">确定</view>
+    <view class="flex-sub bg-gray padding-sm margin-xs radius text-center" bindtap="cancel">取消</view>
+    <!-- <view class="sure" bindtap="sure">确定</view>
+    <view class="cancel" bindtap="cancel">取消</view> -->
+  </view>
+</view>

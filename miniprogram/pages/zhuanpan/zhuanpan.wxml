@@ -1,0 +1,44 @@
+<view class="cu-bar bg-white">
+  <view class="action">
+    <text class="cuIcon-titles text-orange "></text>自定义转盘
+  </view>
+  <view class="action margin-right">
+      <button class="cu-btn bg-orange.light shadow" hidden='{{initzbbtn}}' bindtap="initzhuanpan">恢复初始转盘</button>
+    <button class="cu-btn bg-orange shadow" bindtap="showModal" data-target="ChooseModal">添加</button>
+  </view>
+</view>
+<view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white">
+      <view class="action text-red" bindtap="hideModal_N">取消</view>
+      <view class="action text-green" bindtap="hideModal_Y">确定</view>
+    </view>
+    <view class='padding-xl'>
+      <input placeholder='请输入菜单数量，最大为10，最小为2' confirm-type='next'  bindinput='inputnumber' type='number' class="cu-btn bg-orange.light lg block }" data-value="{{item.value}}"> </input>
+    </view>
+    <view class="grid col-1 padding-sm">
+      <view wx:for="{{z_num}}" class="padding-xs" wx:key="">
+        <input confirm-type='next' wx:if='{{item<10}}' bindinput='foodchange' data-id='{{item}}' type='text' class="cu-btn bg-white lg block }">
+        </input>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='piecontainer'>
+  <view class='zhuanpan' hidden='{{cahidden}}'>
+    <canvas canvas-id='mypie'  class='mypie' style='width:{{w}}px;height:{{w}}px'></canvas>
+  </view>
+  <view class='parentcanvas'>
+    <!-- <canvas canvas-id='mypiestart' catchtap='start' class='mypiestart' style='width:{{w}}px;height:{{w}}px'> -->
+      <image src='{{zhuanpanImg}}' animation="{{animationData}}" style='width:{{w}}px;height:{{w}}px'></image>    
+    <!-- </canvas> -->
+  </view>
+  <view class='dianjiparent'  style='width:{{w}}px;height:{{w}}px;line-height:{{w}}px'>
+  <!-- <view class='dianji' > -->
+  <image  class='dianji' bindtap='start' src='../../images/dianji.png'></image>
+  <!-- </view> -->
+  </view>
+</view>
+<view class="padding flex flex-direction">
+    <button class='cu-btn bg-orange.light lg' hidden='{{hbtngo}}' catchtap='goeat' >去吃{{gofood}}</button>
+</view>

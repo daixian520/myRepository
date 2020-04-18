@@ -1,0 +1,8 @@
+<!--miniprogram/pages/mine/map/map.wxml-->
+<view style='width:100%;height:100%'> 
+ <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" include-points='{{include-points}}' show-location style="width: 100%; height:600rpx">
+ <cover-view> <cover-image src='../../../images/zhuanpan.png' style='width:60rpx;height:60rpx' bindtap='fanhui'></cover-image></cover-view>
+ </map>
+<button class='bg-orange.light' catchtap='no'>去餐厅</button>
+</view>
+

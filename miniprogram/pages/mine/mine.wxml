@@ -1,0 +1,46 @@
+<!--mine.wxml-->
+<view class='main'>
+ <view class="{{authorize?'hide':'userinfo1'}}"  >
+   <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="{{authorize?'hide':'login'}}">授权登录</button>
+   <!-- <button open-type="getUserInfo" lang="zh_CN" class="{{authorize?'hide':'login'}}">
+  获取用户信息
+</button> -->
+ </view>
+ <view class="{{authorize?'userinfo':'hide'}}">
+   <open-data type="userAvatarUrl" class='userinfo-avatar' ></open-data>
+   <open-data type="userNickName" lang="zh_CN" class='user-name' style="order:1"></open-data>
+ </view>
+ <!-- <view class=''></view> -->
+ <button class="cu-bar bg-white margin-top" bindtap='skip_fav'>
+    <view class="action" >
+    <text class="cuIcon-titles text-orange"></text>
+      <text class="cuIcon-likefill text-red"></text>我的记录
+    </view>
+    <view class='action'>
+    <text class="cuIcon-right text-grey"></text>
+    </view>
+    </button>
+   
+ <!-- <button class="cu-bar bg-white margin-top"   catchtap='no'> -->
+  <button class="cu-bar bg-white margin-top"   catchtap='gomap'>
+    <view class="action" bindtap='skip_fav'>
+     <text class="cuIcon-titles text-orange"></text>
+      <text class="cuIcon-service text-olive"></text>餐厅位置
+    </view>
+    <view class='action'>
+    <text class="cuIcon-right text-grey"></text>
+    </view>
+    </button>
+ <!-- <view class='manu'>
+       <button class='btn1' bindtap='skip_fav'>
+          <image class='btnImg' src='cloud://cloud-database-pj15l.636c-cloud-database-pj15l/images/喜欢.png'></image>
+          <view class='manu-font'>我喜欢</view>
+          <image class='front' src='cloud://cloud-database-pj15l.636c-cloud-database-pj15l/images/前往 .png'></image>
+       </button>
+       <button open-type='contact' class='btn1'>
+          <image class='btnImg' src='cloud://cloud-database-pj15l.636c-cloud-database-pj15l-1259174049/images/客服.png'></image>
+          <view class='manu-font'>客服</view>
+          <image class='front' src='cloud://cloud-database-pj15l.636c-cloud-database-pj15l/images/前往 .png'></image>
+       </button>
+ </view> -->
+</view>

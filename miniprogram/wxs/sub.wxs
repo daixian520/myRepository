@@ -1,0 +1,5 @@
+//页面截取过长的商家名字
+var sub=function(str){
+ return str.substring(0,6)
+}
+module.exports.sub=sub;

@@ -1,0 +1,175 @@
+<!--index.wxml-->
+<wxs src='../../wxs/sub.wxs' module='sub' />
+<view class='main'>
+  <view class="cu-bar bg-white search">
+    <view class='action'>
+      <text class='cuIcon-search text-orange'></text> 食物搜索</view>
+    <view class="search-form round">
+      <text class="cuIcon-search "></text>
+      <input type='text' catchtap='navto' disabled='true' placeholder='搜一下'></input>
+    </view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="action">
+      <text class="cuIcon-hot text-orange "></text> 今日推荐
+    </view>
+  </view>
+  <swiper class='lunbo' indicator-dots='true' autoplay='true' interval='4000' circular='true' style='height: {{imageheight}}rpx; ' previous-margin='30px' next-margin='30px'>
+    <block wx:for="{{tuijian}}" wx:key=''>
+      <navigator url="../window-info/window-info?id={{item._id}}">
+        <swiper-item>
+          <view class='card'>
+            <view class='rate bg-white '>好评率{{item.rate}}%</view>
+            <image src="{{item.image}}" bindload='imageLoad' style="width: {{imagewidth}}rpx; height: {{imageheight-20}}rpx;" />
+          </view>
+        </swiper-item>
+      </navigator>
+    </block>
+  </swiper>
+</view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-cascades text-orange "></text>食物分类
+  </view>
+</view>
+<view class='cu-list grid col-4 '>
+  <view class='cu-item' data-btn='包子粥' catchtap='golabel'>
+    <view class='iconfont icon-baozi- text-black' style='font-size:60rpx'></view>
+    <text>包子粥</text>
+  </view>
+  <view class='cu-item' data-btn='暖胃汤' catchtap='golabel'>
+    <view class='iconfont icon-chudianzhou-copy text-black' style='font-size:60rpx'></view>
+    <text>暖胃汤</text>
+  </view>
+  <view class='cu-item' data-btn='米粉面' catchtap='golabel'>
+    <view class='iconfont icon-iconcopy text-black' style='font-size:60rpx'></view>
+    <text>米粉面</text >
+    </view>
+    <view class='cu-item' catchtap='showButton'>
+       <view class='iconfont icon-menu text-black' style='font-size:60rpx'></view> 
+      <text>{{showView?"更多分类":" 收起分类"}}</text> </view>
+</view>
+<view class="{{showView?'hide':'show'}}">
+  <view class='cu-list grid col-4 '>
+    <view class='cu-item' data-btn='夹馍饼' catchtap='golabel'>
+      <view class='iconfont icon-binggan text-black' style='font-size:60rpx'></view>
+      <text>夹馍饼</text>
+    </view>
+    <view class='cu-item' data-btn='饮品' catchtap='golabel'>
+      <view class='iconfont icon-jinkouchongdiaoyinpin text-black' style='font-size:60rpx'></view>
+      <text>饮品</text>
+    </view>
+    <view class='cu-item' data-btn='炒饭' catchtap='golabel'>
+      <view class='iconfont icon-chufangyongpin- text-black' style='font-size:60rpx'></view>
+      <text>炒饭</text>
+    </view>
+    <view class='cu-item' data-btn='米饭' catchtap='golabel'>
+      <view class='iconfont icon-mifan1 text-black' style='font-size:60rpx'></view>
+      <text>米饭</text>
+    </view>
+    <view class='cu-item' data-btn='小火锅' catchtap='golabel'>
+      <view class='iconfont icon-huoguo text-black' style='font-size:60rpx'></view>
+      <text>小火锅</text>
+    </view>
+    <view class='cu-item' data-btn='自选餐' catchtap='golabel'>
+      <view class='iconfont icon-mianbao text-black' style='font-size:60rpx'></view>
+      <text>自选餐</text>
+    </view>
+    <view class='cu-item' data-btn='韩式料理' catchtap='golabel'>
+      <view class='iconfont icon-mianbao1 text-black' style='font-size:60rpx'></view>
+      <text>韩式料理</text >
+    </view>
+    <view class='cu-item' data-btn='麻辣烫冒菜' catchtap='golabel'>
+      <view class='iconfont icon-chifan text-black' style='font-size:60rpx'></view>
+      <text>麻辣烫冒菜</text>
+    </view>
+    <view class='cu-item' data-btn='特色小吃' catchtap='golabel'>
+      <view class='iconfont icon-shutiao text-black' style='font-size:60rpx'></view>
+      <text>特色小吃</text>
+    </view>
+    <view class='cu-item' data-btn='香锅干锅' catchtap='golabel'>
+      <view class='iconfont icon-malatang text-black' style='font-size:60rpx'></view>
+      <text>香锅干锅</text>
+    </view>
+    <view class='cu-item' data-btn='饺子馄饨' catchtap='golabel'>
+      <view class='iconfont icon--jiaozi text-black' style='font-size:60rpx'></view>
+      <text>饺子馄饨</text >
+    </view>
+    <view class='cu-item' data-btn='宴会聚餐' catchtap='golabel'>
+      <view class='iconfont icon-pengyou text-black' style='font-size:60rpx'></view>
+      <text>宴会聚餐</text>
+    </view>
+  </view>
+  <view>
+  <view class='cu-list grid col-2 '>
+    <view class='cu-item' data-btn='全部' catchtap='golabel'>
+      <view class='cuIcon-all text-black' style='font-size:60rpx'></view>
+      <text>全部分类</text>
+    </view>
+      <view class='cu-item'  data-value='{{nowtime}}'  catchtap='golabel'>
+        <view class='cuIcon-like text-black' data-value='{{nowtime}}'  catchtap='gotime' style='font-size:60rpx'></view>
+  <text>时间提醒：{{nowtime}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top" id='window'>
+  <view class="action">
+    <text class="cuIcon-shop text-orange "></text>相关窗口({{w_count}}个)
+  </view>
+  <view  class='action'>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker text-orange">
+        筛选
+        <text class='cuIcon-triangledownfill text-orange'></text>：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
+      </view>
+    </picker>
+  </view>
+</view>
+<!-- <view class='windowselect bg-white'>
+  <block wx:for='{{queryResult}}' wx:for-item="window" wx:key='_id'>
+    <view class='singlewindow' id='{{window._id}}' catchtap='gowindow'>
+      <view class='Windows-image' style="height: {{0.5*imageheight}}rpx;">
+        <image src='{{window.image}}' style="width: {{0.3*imagewidth}}rpx; height: {{0.5*imageheight}}rpx;"></image>
+      </view>
+      <view class='Windows-info'>
+        <view class='Windowname'>{{window.name}}</view>
+        <view class='Windownum'>月售：</view>
+        <view class='Windowmenu'>
+          <text>主营：</text>
+          <block wx:for='{{window.label}}' wx:for-item='label'>
+            <text>{{label+" "}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</view> -->
+<view class='cu-list menu-avatar'>
+  <block wx:for='{{queryResult}}' wx:for-item="window" wx:key=''>
+    <view class='cu-item' id='{{window._id}}' catchtap='gowindow'>
+      <!-- <view class='Windows-image' style="height: {{0.5*imageheight}}rpx;">
+      <image src='cloud://cloud-database-pj15l.636c-cloud-database-pj15l-1259174049/images/code-cloud-callback-config.png' style="width: {{0.5*imagewidth}}rpx; height: {{0.5*imageheight}}rpx;"></image>
+    </view> -->
+      <view class='cu-avatar  round lg xl radius bg-orange.light shadow-blur '>
+
+        <!-- <image src='{{window.image}}' bindload='imageLoad'  style="width: {{imagewidth}}rpx; height: {{imageheight}}rpx;" ></image> -->
+        <text wx:if='{{window.name.length<=6}}' class='text-xs'>{{window.name}}</text>
+        <text class='text-xs' wx:else>{{sub.sub(window.name)}}</text>
+      </view>
+      <view class='content margin-left-lg'>
+        <view>{{window.name}}</view>
+        <view>
+          <view class='text-gray flex'>好评率：{{window.rate}}%</view>
+          <view class='text-gray  flex'> 主营：{{window.label}} </view>
+
+          <!-- <view class='text-black'>{{window.name}}</view>
+        <view class='text-black text-sm flex'>好评率：{{window.rate}}%</view>
+        <view class='text-black text-sm flex'> 主营：{{window.label}} </view> -->
+        </view>
+
+      </view>
+    </view>
+  </block>
+</view>

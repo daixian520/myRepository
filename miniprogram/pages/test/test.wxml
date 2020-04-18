@@ -1,0 +1,7 @@
+<!--miniprogram/pages/test/test.wxml-->
+<view class='container'>
+<canvas class='canvas' canvas-id='my-pie'></canvas>
+
+</view>
+<text>miniprogram/pages/test/test.wxml</text>
+

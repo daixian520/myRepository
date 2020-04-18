@@ -1,0 +1,48 @@
+/* mine.wxss */ 
+ /* .zhuanpan{
+  position: relative;
+} */
+ /* .start{
+  
+}  
+.piecontainer{
+}  */
+   /* .mypie{
+  position: relative;
+} */
+/* .mypiestart{
+  position:relative;
+  left:0px;
+  top:0px;
+}  */
+/* .start{
+  position: absolute;
+  text-align: center;
+   top: 160px;
+  left: 140px; 
+  margin:  auto;
+  height:80px;
+  width:80px;
+}  */
+.piecontainer{
+  position: relative
+}
+.dianjiparent{
+  position: absolute;
+  left:0px;
+  top: 0px;
+  text-align: center;
+}
+.dianji{
+position: absolute;
+top: 50%;
+left: 50%;
+margin-left: -90rpx;
+margin-top:-75rpx; 
+  width: 390rpx;
+  height: 150rpx;
+  /* border: 1px solid gray;
+  background-color: white; */
+  /* border-radius: 100rpx; */
+}
+

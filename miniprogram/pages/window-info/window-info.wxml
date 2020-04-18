@@ -1,0 +1,90 @@
+<view class='window'>
+  <image src='{{img}}' bindload='imageLoad' style="width: {{imagewidth}}px; height: {{imageheight}}px;"></image>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="switchNav">菜单</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="switchNav">评价</view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+    <swiper-item>
+      <view class='cu-list menu'>
+        <view class='cu-item'>
+          <view class='content padding-tb-sm'>
+            <view class='margin-bottom'>
+              <text class='cuIcon-shop text-orange margin-right'></text>窗口：{{w_name}}</view>
+            <view class='margin-bottom'>
+              <text class='cuIcon-location text-orange margin-right '></text>位置：{{w_locate}}</view>
+            <view class='margin-bottom'>
+              <text class='cuIcon-shop text-orange margin-right'></text>介绍：{{w_describe}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class='window-info margin'>
+        <view class='window-menu' bindload='imageLoad' style="width: {{0.45*winWidth}}px; " wx:for="{{w_menu}}" wx:for-item='menu' wx:key=''>
+          {{menu.footname}}:{{menu.footprice}}
+        </view>
+      </view>
+      <view class="cu-bar bg-white solid-bottom" id='window'>
+        <view class="action">
+          <text class="cuIcon-titles text-orange "></text>商家图表
+        </view>
+      </view>
+      <scroll-view scroll-y style='width:100%;height:500rpx;'>
+      <view class='charts-content'>
+        <canvas class='charts' canvas-id='my-pie' style='width:100%;height:800rpx;'></canvas>
+      </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item style='transform:none'>
+      <view class='container'>
+        <!-- 窗口评价 -->
+        <view class='evaluate_contant'>
+          <view class="cu-list menu">
+            <view class="cu-item no-border" wx:for='{{evaluate_contant}}' wx:key='' wx:for-index='idx'>
+              <view class="content">
+                <!-- <text class="cuIcon-circlefill text-grey"></text> -->
+                <text class="text-grey">{{item}}:</text>
+                <block wx:for="{{stars}}" wx:key=''>
+                  <image bindtap='select' data-score="{{item + 1}}" data-idx='{{idx}}' class="star-image" style="left:{{item*50}}rpx" src="{{scores[idx] > item ?selectedSrc: normalSrc}}">
+                  </image>
+                </block>
+              </view>
+            </view>
+          </view>
+          <!-- 用户评论 -->
+          <view class="cu-bar bg-white solid-bottom" id='window'>
+            <view class="action">
+              <text class="cuIcon-titles text-orange "></text>综合评价： {{feel[avgscore-1]}}
+            </view>
+          </view>
+          <button bindtap='submit_evaluate' class='cu-btn bg-orange margin-top-ls lg' data-btval='{{btval}}' hidden='{{submitable}}'>提交评价</button>
+
+          <!-- 用户评论展示 -->
+          <view class="cu-bar bg-white solid-bottom" id='window'>
+            <view class="action">
+              <text class="cuIcon-titles text-orange "></text>评价（{{pingjianum}}）好评率：{{goodpingjia}}%
+            </view>
+          </view>
+          <view class='showpingjia margin'>
+            <scroll-view scroll-y style='height:500rpx' bindscrolltolower='scrolltolower'>
+              <view wx:for='{{queryResult}}' class='flex '>
+                <view class='basis-xs'>
+                  <view class="text-center cu-avatar round lg" style="background-image:url({{item.userinfo.user_img}});"></view>
+                  <view class='text-center'>{{item.userinfo.user_name}}</view>
+                </view>
+                <view class='username basis-df'>综合评价：
+                  <block wx:for="{{item.avgscore}}">
+                    <image style="width:30rpx;height:30rpx;margin-left:10rpx;" src='{{selectedSrc}}'></image>
+                  </block>
+                </view>
+                <view class='time basis-xss'>{{item.p_time}}</view>
+              </view>
+
+            </scroll-view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+</view>

@@ -1,0 +1,39 @@
+<!--miniprogram/pages/sousuo/sousuo.wxml-->
+ <view class="cu-bar bg-white search">
+    <view class="search-form radius">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索食物" confirm-type="search" bindconfirm='sousuo' value="{{sousuoValue}}" focus="true"  bindinput="inputTyping" ></input>
+    </view>
+    <view class="action">
+      <!-- <text class="cuIcon-close"></text> -->
+      <text catchtap='searchbtn' data-btnv='{{buttonvalue}}'>{{buttonvalue}}</text>
+    </view>
+  </view>
+  <view class="cu-bar bg-white solid-bottom" id='window'>
+    <view class="action">
+      <text class="cuIcon-titles text-orange "></text>相关窗口({{w_count}}个)
+    </view>
+    <view class='action'>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker text-orange">
+          筛选
+          <text class='cuIcon-triangledownfill text-orange'></text>：{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='cu-list menu-avatar'>
+    <!-- 窗口查询结果 -->
+    <block wx:for='{{queryResult}}' wx:for-item="window">
+      <view class='cu-item' id='{{window._id}}' catchtap='gowindow'>
+        <view class='cu-avatar radius lg bg-orange.light' >
+        <text wx:if='{{window.name.length<=6}}' class='text-xs'>{{window.name}}</text>
+        <text class='text-xs' wx:else>名字太长</text>
+        </view>
+        <view class='content margin-left'>
+          <view class='text-black'>{{window.name}}</view>
+          <view class='text-gray text-sm flex'> 主营：{{window.label}} </view>
+        </view>
+      </view>
+    </block>
+  </view>

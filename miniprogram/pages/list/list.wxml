@@ -1,0 +1,27 @@
+<!--pages/list/list.wxml-->
+<view class='page'>
+  
+  <view class="{{showView?'show':'hide'}}">
+      <view class='hidden cu-bar'>
+          <image src='cloud://cloud-database-pj15l.636c-cloud-database-pj15l/images/肚子空.png'></image>
+          <text> 空空的~</text>
+      </view >
+  </view>
+  <scroll-view scroll-y='true'>
+    <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove"  wx:for="{{lists}}" wx:key="*this.id">
+    <view class='question'> 
+      <view class="content"><text space="nbsp">{{item.content}}</text></view>
+      <view class='content' style='color:gray;'>{{item.time}}</view>
+    </view> 
+      <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+    </view>
+  </scroll-view>
+  <!-- 添加一条文字的按钮 -->
+  <view class='add padding' bindtap='add'>
+  <view class='text-xsl'>
+  <text class='cuIcon-roundadd text-orange'></text>
+  </view>
+  <!-- <view>添加</view> -->
+    <!-- <image src='../../images/Edit.png'></image> -->
+  </view>
+</view>

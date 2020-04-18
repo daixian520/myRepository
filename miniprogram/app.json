@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/zhuanpan/zhuanpan",
+    "pages/mine/map/map",
+    "pages/mine/mine",
+    "pages/chisha/chisha",
+    "pages/test/test",
+    "pages/window-info/window-info",
+    "pages/list/list",
+    "pages/add/add",
+    "pages/sousuo/sousuo"
+  ],
+  "tabBar": {
+    "color": "#cdcdcd",
+    "selectedColor": "#F37B1D",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/zhuanpan/zhuanpan",
+        "text": "转盘",
+        "iconPath": "images/zhuanpan2.png",
+        "selectedIconPath": "images/zhuanpan.png"
+      },
+      {
+        "pagePath": "pages/chisha/chisha",
+        "text": "吃啥",
+        "iconPath": "images/eat2.png",
+        "selectedIconPath": "images/eat.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine2.png",
+        "selectedIconPath": "images/mine.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "吃啥-河中医",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "cloud": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}
